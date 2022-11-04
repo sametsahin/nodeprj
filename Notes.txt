@@ -1,0 +1,26 @@
+**build broject
+*get temp folder within template files
+*create package.json    ->npm init
+*use ecma script modules    ->entry package json and add after main, "type": "module"
+*create app.js          ->because of being starter file
+
+**express
+*import express to a page and use it with app=express()
+*express uses app.listen(port) and app.get('/', function) to run in localhost
+
+**packages
+*install express        ->npm i express
+*install nodemon        ->npm i -D nodemon (-d parameter represents that it runs just in development envoirement) 
+    -it located is in devdependicies
+    -to use it, change scripts->test section as scripts->start:"nodemon app.js"
+    -you can use by npm start
+
+**github
+*create repository on github (just entry on prj name)
+*git config --global user.email "sametsahinx@gmail.com"
+*git config --global user.name "sametsahin"
+*git init (create local repository)
+*create .gitignore file
+    -use gitignore template from https://www.toptal.com/developers/gitignore/api/node
+*git add . (add whole file to the local repository)
+*git commit -m "comment about the commit"
