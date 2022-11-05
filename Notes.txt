@@ -43,6 +43,7 @@ http://localhost:3000/css or images or js/style.css
 *git add . (add whole file to the local repository)
 *git commit -m "begin files of the prj"
 *git branch -m main
+*git push -u origin main
 
 **MONGODB
 *Create Cluster
@@ -60,3 +61,10 @@ http://localhost:3000/css or images or js/style.css
 
 *Define db to your application 
 with db.ejs and all back it in app.js
+
+
+**MODEL
+schema->model->db document
+*create first model in models
+    -define attribute belongs to model like name, description, uploadedAt
+
