@@ -68,3 +68,11 @@ schema->model->db document
 *create first model in models
     -define attribute belongs to model like name, description, uploadedAt
 
+**THUNDERCLIENT
+    *install thunderclient extension to the vs code
+    *collection->new collection
+    *click new request from mostright of the project name 
+    *choose a process that wheter GET, POST or whatever, and you can send a request with body then json.
+    *you will get an error when you send post request, you need to add app.use(express.json()) to the app.js
+    *after this level, you will be adding the item to the mongodb
+    *to get object properly from the db, we have to change controller method the the async await structure.

@@ -1,9 +1,10 @@
 import express from 'express';
-import { createPhoto } from '../controllers/PhotoController.js'
+import { getPhotos, createPhoto } from '../controllers/PhotoController.js'
 
 
 const router = express.Router()
 
+router.route("/").get(getPhotos)
 router.route("/createphoto").post(createPhoto)
 
 
