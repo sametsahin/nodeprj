@@ -6,4 +6,4 @@ const getAboutPage = (req, res) => {
     res.render("about", { title: 'about' });
 }
 
-export { getIndexPage, getAboutPage}
+export { getIndexPage, getAboutPage }
