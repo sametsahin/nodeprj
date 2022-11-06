@@ -9,12 +9,23 @@ const getDashboardPage = (req, res) => {
 const createUser = async (req, res) => {
     try {
         const user = await User.create(req.body)
-        res.redirect('/login')
+        res.status(201).json({ user: user._id })
     } catch (error) {
-        res.status(500).json({
-            succeded: false,
-            error
-        })
+        console.log('error: ', error);
+        let errorArr = {}
+
+        if (error.code == 11000) {
+            errorArr.email = 'The email is already registered!'
+        }
+
+        if (error.name === 'ValidationError') {
+            Object.keys(error.errors).forEach((key) => {
+                errorArr[key] = error.errors[key].message
+            })
+        }
+        console.log("errors: ", errorArr);
+
+        res.status(400).json(errorArr)
     }
 }
 
