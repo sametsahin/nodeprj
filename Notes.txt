@@ -13,6 +13,7 @@
 *define static file defination as a public folder
 app.use(express.static('public'))
 http://localhost:3000/css or images or js/style.css
+*to parse elements comes from form, we need to use `app.use(express.urlencoded({ extended: true }))` in app.js
 
 **PACKAGES
 *install express        ->npm i express

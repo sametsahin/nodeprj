@@ -1,10 +1,12 @@
 import express from "express";
-import { getIndexPage, getAboutPage } from "../controllers/PageController.js"
+import { getIndexPage, getAboutPage, getRegisterPage } from "../controllers/PageController.js"
 
 
 const router = express.Router()
 
 router.route("/").get(getIndexPage)
 router.route("/about").get(getAboutPage)
+router.route("/register").get(getRegisterPage)
+
 
 export default router

@@ -5,5 +5,11 @@ const getIndexPage = (req, res) => {
 const getAboutPage = (req, res) => {
     res.render("about", { title: 'about' });
 }
+const getRegisterPage = (req, res) => {
+    res.render("register", { title: 'register' });
+}
 
-export { getIndexPage, getAboutPage }
+
+
+
+export { getIndexPage, getAboutPage, getRegisterPage }
