@@ -1,5 +1,4 @@
 const getIndexPage = (req, res) => {
-    console.log('req user: ', req.user);
     res.render('index', { title: 'home' });
 }
 const getAboutPage = (req, res) => {
