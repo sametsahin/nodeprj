@@ -11,6 +11,4 @@ const getLoginPage = (req, res) => {
     res.render('login', { title: 'login' });
 }
 
-
-
 export { getIndexPage, getAboutPage, getRegisterPage, getLoginPage }

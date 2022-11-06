@@ -95,3 +95,15 @@ schema->model->db document
 **COOKIE
     *to check cookies on the browser,
         -Inspect->application->Cookies
+
+
+**CLOUDINARY
+    *add three key and value to the .env file
+    *install cloudinary package to use cloudinary
+        -npm i cloudinary
+    *install fileupload package to use main propery when picture uploaded by npm i express-fileupload
+    *use these package in app.js
+    *config cloudinary package in app.js by cloudinary.config({})
+    *use fileupload with config temp files->app.use(fileUpload({useTempFiles:true}))
+
+

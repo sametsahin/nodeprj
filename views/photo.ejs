@@ -11,11 +11,12 @@
                      <div class="titlepage text_align_left">
                         <h2><%= photo.name %></h2>
                         <p><%= photo.description %></p>
+                        <a href="" class="read_more"><%= photo.user.username %></a>
                      </div>
                   </div>
                   <div class="col-md-6">
                      <div class="about_img">
-                        <figure><img src="/images/about_img.png" alt="#" /></figure>
+                        <figure><img src="<%= photo.url %>" alt="#" /></figure>
                      </div>
                   </div>
                </div>

@@ -19,17 +19,6 @@
                             <div class="satteb text_align_center">
                                 <p>fact that a reader will be distracted by the readable content of a page when looking
                                     at its
-                                    layout. The point of using Lorem Ipsum is that itfact that a reader will be
-                                    distracted by the
-                                    readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that
-                                    itfact that a reader will be distracted by the readable content of a page when
-                                    looking at its
-                                    layout. The point of using Lorem Ipsum is that itfact that a reader will be
-                                    distracted by the
-                                    readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that
-                                    it
                                 </p>
                                 <h3>The point of using </h3>
                                 <i><img src="/images/custo.jpg" alt="#" /></i>
@@ -48,44 +37,44 @@
 
             <div class="gallery">
                 <div class="container_with">
-                   <div class="row">
-                      <div class="col-md-12">
-                         <div class="titlepage text_align_center">
-                            <h2>Photos</h2>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="tz-gallery">
-                      <div class="row">
-    
-                         <% for(photo of photos) { %>
-                            <div class="col-lg-4 col-md-6 ma_bottom30">
-                               <div class="lightbox">
-                                  <img src="/images/g1.jpg" alt="Bridge">
-                                  <div class="view_main">
-                                     <div class="pose">
-                                        <a class="read_more" href="/photos/<%= photo._id%>"><img src="/images/ga.png"
-                                              alt="#" /></a>
-                                        <h3 style="padding:10px 0 10px 0;">
-                                           <%= photo.name %>
-                                        </h3>
-                                        <p>
-                                           <%= photo.description.substring(0,80) +"..." %>
-                                        </p>
-                                     </div>
-                                  </div>
-                               </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="titlepage text_align_center">
+                                <h2>Photos</h2>
                             </div>
-                            <% } %>
-    
-    
-                               <div class="col-md-12">
-                                  <a class="plus_btn" href="gallery.html">+</a>
-                               </div>
-                      </div>
-                   </div>
+                        </div>
+                    </div>
+                    <div class="tz-gallery">
+                        <div class="row">
+
+                            <% for(photo of photos) { %>
+                                <div class="col-lg-4 col-md-6 ma_bottom30">
+                                    <div class="lightbox">
+                                        <img src="<%= photo.url %>" alt="<%= photo.name %>">
+                                        <div class="view_main">
+                                            <div class="pose">
+                                                <a class="read_more" href="/photos/<%= photo._id%>"><img
+                                                        src="" alt="#" /></a>
+                                                <h3 style="padding:10px 0 10px 0;">
+                                                    <%= photo.name %>
+                                                </h3>
+                                                <p>
+                                                    <%= photo.description.substring(0,80) +"..." %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+
+
+                                    <div class="col-md-12">
+                                        <a class="plus_btn" href="gallery.html">+</a>
+                                    </div>
+                        </div>
+                    </div>
                 </div>
-             </div>
+            </div>
 
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
                 aria-hidden="true">
@@ -100,11 +89,13 @@
                             <div class="row">
                                 <div class="col-md-12 ">
                                     <div class="text_align_center">
-                                        <h2 style=" font-size: 30px;  margin-bottom: 20px; color: #D43A8E;">Add New Photo</h2>
+                                        <h2 style=" font-size: 30px;  margin-bottom: 20px; color: #D43A8E;">Add New
+                                            Photo</h2>
                                     </div>
                                 </div>
                                 <div class="col-md-10 offset-md-1">
-                                    <form id="request" class="main_form" method="POST" action="/photos/createphoto">
+                                    <form id="request" class="main_form" method="POST" action="/photos/createphoto"
+                                        enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <input class="form_control" placeholder="Name" type="text" name="name">
