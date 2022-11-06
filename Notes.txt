@@ -27,6 +27,9 @@ http://localhost:3000/css or images or js/style.css
 
 *install mongoose, it used for to create modelling to work with mongodb simulteniously
 
+*install bcrypt package to encrypt passwords by install i bcrypt
+  
+
 
 *template engine
     -install ejs ->npm i ejs
