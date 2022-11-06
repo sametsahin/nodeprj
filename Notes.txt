@@ -28,7 +28,7 @@ http://localhost:3000/css or images or js/style.css
 *install mongoose, it used for to create modelling to work with mongodb simulteniously
 
 *install bcrypt package to encrypt passwords by install i bcrypt
-  
+
 
 
 *template engine
@@ -38,33 +38,33 @@ http://localhost:3000/css or images or js/style.css
 
 
 **GITHUB
-*create repository on github (just entry on prj name)
-*git config --global user.email "sametsahinx@gmail.com"
-*git config --global user.name "sametsahin"
-*git init (create local repository)
-*create .gitignore file
-    -use gitignore template from https://www.toptal.com/developers/gitignore/api/node
-*git add . (add whole file to the local repository)
-*git commit -m "begin files of the prj"
-*git branch -m main
-*git push -u origin main
+    *create repository on github (just entry on prj name)
+    *git config --global user.email "sametsahinx@gmail.com"
+    *git config --global user.name "sametsahin"
+    *git init (create local repository)
+    *create .gitignore file
+        -use gitignore template from https://www.toptal.com/developers/gitignore/api/node
+    *git add . (add whole file to the local repository)
+    *git commit -m "begin files of the prj"
+    *git branch -m main
+    *git push -u origin main
 
 **MONGODB
-*Create Cluster
-    -signup mongo db website
-    -to create a new db->click Build a database->free shared->create clustur
-    -define an username and password
-    -define ip address which users can be connect it.
-*Connect db
-    -connect->connect your application->there are many drivers to connect your application via connection string. Take it suitable for you
-    -create .env file in your application in root directory to store your veriables (db infos)
+    *Create Cluster
+        -signup mongo db website
+        -to create a new db->click Build a database->free shared->create clustur
+        -define an username and password
+        -define ip address which users can be connect it.
+    *Connect db
+        -connect->connect your application->there are many drivers to connect your application via connection string. Take it suitable for you
+        -create .env file in your application in root directory to store your veriables (db infos)
 
-*Create db
-    -click browse collection on your cluster
-    -add my own data->dbname, collection name
+    *Create db
+        -click browse collection on your cluster
+        -add my own data->dbname, collection name
 
-*Define db to your application 
-with db.ejs and all back it in app.js
+    *Define db to your application 
+    with db.ejs and all back it in app.js
 
 
 **MODEL
@@ -80,3 +80,9 @@ schema->model->db document
     *you will get an error when you send post request, you need to add app.use(express.json()) to the app.js
     *after this level, you will be adding the item to the mongodb
     *to get object properly from the db, we have to change controller method the the async await structure.
+
+**JWT
+ It is a standard that JSON based provides verification of data. Consists of three sections, these are:
+    header: algorithm & token type  ->  'typ':"jwt" 
+    payload: data                   ->  {'username':'sametsahin', 'name':'samet'}
+    verify signature:               ->  HMACSHA256{ENCODES}
