@@ -43,7 +43,7 @@ app.use('/photos', photoRoute)
 app.use('/users', userRoute)
 
 app.listen(port, () => {
-    console.log(`application running on port: ${port}`);
+    console.log(`application is running on port: ${port}`);
 })
 
 
