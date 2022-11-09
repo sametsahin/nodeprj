@@ -5,30 +5,18 @@ import fs from "fs";
 const getPhotos = async (req, res) => {
     try {
         const photos = await Photo.find({})
-        res.status(200).render('photos', {
-            photos,
-            title: "photos"
-        })
+        res.status(200).render('photos', { photos, title: "photos" })
     } catch (error) {
-        res.status(500).json({
-            succeded: false,
-            error
-        })
+        res.status(500).json({ succeded: false, error })
     }
 }
 
 const getPhoto = async (req, res) => {
     try {
         const photo = await Photo.findById({ _id: req.params.id }).populate('user')
-        res.status(200).render('photo', {
-            photo,
-            title: "photos"
-        })
+        res.status(200).render('photo', { photo, title: "photos" })
     } catch (error) {
-        res.status(500).json({
-            succeded: false,
-            error
-        })
+        res.status(500).json({ succeded: false, error })
     }
 }
 
@@ -48,12 +36,9 @@ const createPhoto = async (req, res) => {
             url: result.secure_url
         })
         fs.unlinkSync(req.files.image.tempFilePath)
-        res.status(201).redirect('/user/dashboard')
+        res.status(201).redirect('/users/dashboard')
     } catch (error) {
-        res.status(500).json({
-            succeded: false,
-            error
-        })
+        res.status(500).json({ succeded: false, error })
     }
 }
 

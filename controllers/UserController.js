@@ -8,6 +8,23 @@ const getDashboardPage = async (req, res) => {
     res.render('dashboard', { title: 'dashboard', photos });
 }
 
+const getUsersPage = async (req, res) => {
+    const users = await User.find({ _id: { $ne: res.locals.user._id } })
+    res.render('users', { title: 'users', users });
+}
+
+const getUserPage = async (req, res) => {
+    try {
+        const user = await User.findById({ _id: req.params.id })
+        const photos = await Photo.find({ user: req.params.id })
+        res.status(200).render('user', { user, photos, title: "user" })
+    } catch (error) {
+        res.status(500).json({
+            succeded: false,
+            error
+        })
+    }
+}
 const createUser = async (req, res) => {
     try {
         const user = await User.create(req.body)
@@ -50,7 +67,7 @@ const loginUser = async (req, res) => {
                     maxAge: 1000 * 60 * 60 * 24,
                 })
 
-                res.redirect('/user/dashboard')
+                res.redirect('/users/dashboard')
             } else {
                 res.status(401).json({
                     succeded: false,
@@ -84,4 +101,4 @@ const createToken = (userId) => {
     })
 }
 
-export { getDashboardPage, createUser, loginUser, logoutUser }
+export { getDashboardPage, getUsersPage, getUserPage, createUser, loginUser, logoutUser }

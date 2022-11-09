@@ -13,7 +13,7 @@
                      </div>
                   </div>
                   <div class="col-md-8 offset-md-2">
-                     <form id="request" class="main_form" action="/user/create" method="post">
+                     <form id="request" class="main_form" action="/users/create" method="post">
                         <div class="row">
                            <div class="col-md-12">
                               <input class="form_control" placeholder="User name" type="text" name="username">
@@ -67,7 +67,7 @@
                      const password = form.password.value
                      const username = form.username.value
                      try {
-                        const res = await fetch('user/create', {
+                        const res = await fetch('users/create', {
                            method: "POST",
                            body: JSON.stringify({ email, password, username }),
                            headers: { "Content-Type": "application/json" }

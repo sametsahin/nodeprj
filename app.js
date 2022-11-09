@@ -37,7 +37,7 @@ app.use(fileUpload({ useTempFiles: true }))
 app.use('*', checkUser)
 app.use('/', pageRoute)
 app.use('/photos', photoRoute)
-app.use('/user', userRoute)
+app.use('/users', userRoute)
 
 app.listen(port, () => {
     console.log(`application running on port: ${port}`);

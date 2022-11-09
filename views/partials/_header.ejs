@@ -24,9 +24,11 @@
          <div class=" col-md-4 di_none">
             <ul class="email text_align_right">
                <% if(user) { %>
-                  <li><a class="<%= title === 'dashboard' && 'active' %>" href="/user/dashboard">Dashboard</a>
+                  <li><a class="<%= title === 'dashboard' && 'active' %>" href="/users/dashboard">Dashboard</a>
                   </li>
-                  <li><a href="/user/logout">Logout</a></li>
+                  <li><a class="<%= title === 'users' && 'active' %>" href="/users">Users</a>
+                  </li>
+                  <li><a href="/users/logout">Logout</a></li>
                <% } else { %>
                      <li><a class="<%= title === 'register' && 'active' %>" href="/register">Register</a></li>
                      <li><a class="<%= title === 'login' && 'active' %>" href="/login">Login</a></li>
