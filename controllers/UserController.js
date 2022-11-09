@@ -5,7 +5,8 @@ import Photo from "../models/Photo.js";
 
 const getDashboardPage = async (req, res) => {
     const photos = await Photo.find({ user: res.locals.user._id })
-    res.render('dashboard', { title: 'dashboard', photos });
+    const user = await User.findById({ _id: res.locals.user._id }).populate(["followings", "followers"])
+    res.render('dashboard', { title: 'dashboard', photos, user });
 }
 
 const getUsersPage = async (req, res) => {
@@ -18,6 +19,48 @@ const getUserPage = async (req, res) => {
         const user = await User.findById({ _id: req.params.id })
         const photos = await Photo.find({ user: req.params.id })
         res.status(200).render('user', { user, photos, title: "user" })
+    } catch (error) {
+        res.status(500).json({
+            succeded: false,
+            error
+        })
+    }
+}
+
+const follow = async (req, res) => {
+    try {
+        let user = await User.findByIdAndUpdate(
+            { _id: req.params.id }, //the user who I want follow
+            { $push: { followers: res.locals.user._id } },
+            { new: true } //after done process, return new one
+        )
+        user = await User.findByIdAndUpdate(
+            { _id: res.locals.user._id },//the user who I am
+            { $push: { followings: req.params.id } },
+            { new: true }
+        )
+        res.status(200).json({ succeded: true, user })
+    } catch (error) {
+        res.status(500).json({
+            succeded: false,
+            error
+        })
+    }
+}
+
+const unfollow = async (req, res) => {
+    try {
+        let user = await User.findByIdAndUpdate(
+            { _id: req.params.id }, //the user who I want follow
+            { $pull: { followers: res.locals.user._id } },
+            { new: true } //after done process, return new one
+        )
+        user = await User.findByIdAndUpdate(
+            { _id: res.locals.user._id },//the user who I am
+            { $pull: { followings: req.params.id } },
+            { new: true }
+        )
+        res.status(200).json({ succeded: true, user })
     } catch (error) {
         res.status(500).json({
             succeded: false,
@@ -101,4 +144,4 @@ const createToken = (userId) => {
     })
 }
 
-export { getDashboardPage, getUsersPage, getUserPage, createUser, loginUser, logoutUser }
+export { getDashboardPage, getUsersPage, getUserPage, createUser, loginUser, logoutUser, follow, unfollow }
