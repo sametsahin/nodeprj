@@ -9,11 +9,20 @@
                <div class="row">
                   <div class="col-md-6">
                      <div class="titlepage text_align_left">
-                        <h2><%= photo.name %></h2>
-                        <p><%= photo.description %></p>
-                        <a href="/users/<%= photo.user._id %>" class="read_more"><%= photo.user.username %></a>
+                        <h2>
+                           <%= photo.name %>
+                        </h2>
+                        <p>
+                           <%= photo.description %>
+                        </p>
+                        <% if(JSON.stringify(photo.user._id)==JSON.stringify(exist_user) ){ link='/users/dashboard'
+                           }else { link='/users/' +photo.user._id } %>
+
+                           <a href="<%= link %>" class="read_more">
+                              <%= photo.user.username %>
+                           </a>
                      </div>
-                  </div> 
+                  </div>
                   <div class="col-md-6">
                      <div class="about_img">
                         <figure><img src="<%= photo.url %>" alt="#" /></figure>

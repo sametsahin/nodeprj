@@ -6,6 +6,9 @@ import Photo from "../models/Photo.js";
 const getDashboardPage = async (req, res) => {
     const photos = await Photo.find({ user: res.locals.user._id })
     const user = await User.findById({ _id: res.locals.user._id }).populate(["followings", "followers"])
+
+
+    
     res.render('dashboard', { title: 'dashboard', photos, user });
 }
 
@@ -18,7 +21,10 @@ const getUserPage = async (req, res) => {
     try {
         const user = await User.findById({ _id: req.params.id })
         const photos = await Photo.find({ user: req.params.id })
-        res.status(200).render('user', { user, photos, title: "user" })
+        const checkFollower = user.followers.some((follower) => {
+            return follower.equals(res.locals.user._id)
+        })
+        res.status(200).render('user', { user, photos, checkFollower, title: "user" })
     } catch (error) {
         res.status(500).json({
             succeded: false,
@@ -39,7 +45,7 @@ const follow = async (req, res) => {
             { $push: { followings: req.params.id } },
             { new: true }
         )
-        res.status(200).json({ succeded: true, user })
+        res.status(200).redirect(`/users/${req.params.id}`)
     } catch (error) {
         res.status(500).json({
             succeded: false,
@@ -60,7 +66,7 @@ const unfollow = async (req, res) => {
             { $pull: { followings: req.params.id } },
             { new: true }
         )
-        res.status(200).json({ succeded: true, user })
+        res.status(200).redirect(`/users/${req.params.id}`)
     } catch (error) {
         res.status(500).json({
             succeded: false,

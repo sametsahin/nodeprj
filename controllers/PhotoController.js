@@ -14,7 +14,7 @@ const getPhotos = async (req, res) => {
 const getPhoto = async (req, res) => {
     try {
         const photo = await Photo.findById({ _id: req.params.id }).populate('user')
-        res.status(200).render('photo', { photo, title: "photos" })
+        res.status(200).render('photo', { photo, exist_user: res.locals.user._id, title: "photos" })
     } catch (error) {
         res.status(500).json({ succeded: false, error })
     }

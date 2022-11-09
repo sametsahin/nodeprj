@@ -29,7 +29,7 @@ http://localhost:3000/css or images or js/style.css
     *install bcrypt package to encrypt passwords by install i bcrypt
     *install cookie-parser     to store jwt to the cookie, we need to use cookie parser by npm i cookie-parser
     *install validator to show errors came from forms npm i validator
-
+    *install method override method to send put method to the browser npm i method-override
 
 
 
