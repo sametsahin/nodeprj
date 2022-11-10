@@ -110,3 +110,9 @@ schema->model->db document
     *use fileupload with config temp files->app.use(fileUpload({useTempFiles:true}))
 
 
+**DEVELOPMENT
+    *package.json->scripts->start->
+        -change command from nodemon to node
+    *create Procfile to the main directory
+        -web: node app.js (whatever your start file)
+    *login Heroku and new
