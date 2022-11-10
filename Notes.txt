@@ -30,6 +30,9 @@ http://localhost:3000/css or images or js/style.css
     *install cookie-parser     to store jwt to the cookie, we need to use cookie parser by npm i cookie-parser
     *install validator to show errors came from forms npm i validator
     *install method override method to send put method to the browser npm i method-override
+    *install nodemailer to get information from website via email with npm install nodemailer
+        -settings->security->app passwords->select app and device and generate
+        -write these password and email to the env file
 
 
 
